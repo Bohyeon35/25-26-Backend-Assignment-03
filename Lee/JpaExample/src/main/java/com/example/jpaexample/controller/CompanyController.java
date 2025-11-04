@@ -24,8 +24,9 @@ public class CompanyController {
     }
 
     @GetMapping
-    public ResponseEntity<?> getAllCompanies() {
-        return ResponseEntity.ok(companyService.getAllCompanies());
+    public ResponseEntity<List<CompanyResponseDto>> getAllCompanies() {
+        List<CompanyResponseDto> companyList = companyService.getAllCompanies();
+        return ResponseEntity.ok(companyList);
     }
 
     @DeleteMapping("/{companyId}")
